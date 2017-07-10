@@ -115,7 +115,7 @@
           "osDisk" : {
             "name" : "osdisk",
             "vhd" : {
-              "uri" : "[concat('http://', parameters('sa'), '.blob.core.windows.net/openshiftvmachines/', parameters('vmName'), '.vhd')]"
+              "uri" : "[concat(concat(reference(resourceId(resourceGroup().name, 'Microsoft.Storage/storageAccounts', parameters('sa')), variables('apiVersion')).primaryEndpoints['blob'], 'openshiftvmachines/'), parameters('vmName'), '.vhd')]"
             },
             "caching" : "ReadWrite",
             "createOption" : "FromImage"
@@ -128,7 +128,7 @@
               "lun" : 0,
               "name" : "datadisk1",
               "vhd" : {
-                "uri" : "[concat('http://', parameters('sa'), '.blob.core.windows.net/openshiftvmachines/', parameters('vmName'), '_datadisk1.vhd')]"
+                "uri" : "[concat(concat(reference(resourceId(resourceGroup().name, 'Microsoft.Storage/storageAccounts', parameters('sa')), variables('apiVersion')).primaryEndpoints['blob'], 'openshiftvmachines/'), parameters('vmName'), '_datadisk1.vhd')]"
               }
             },
             {
@@ -138,7 +138,7 @@
               "lun" : 1,
               "name" : "datadisk2",
               "vhd" : {
-                "uri" : "[concat('http://', parameters('sa'), '.blob.core.windows.net/openshiftvmachines/', parameters('vmName'), '_datadisk2.vhd')]"
+                "uri" : "[concat(concat(reference(resourceId(resourceGroup().name, 'Microsoft.Storage/storageAccounts', parameters('sa')), variables('apiVersion')).primaryEndpoints['blob'], 'openshiftvmachines/'), parameters('vmName'), '_datadisk2.vhd')]"
               }
             }
           ]
